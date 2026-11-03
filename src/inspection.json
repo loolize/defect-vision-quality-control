@@ -1,0 +1,211 @@
+{
+    "series": [
+        {
+            "series_id": 1,
+            "series_number": "TEST-001"
+        }
+    ],
+    "blisters": [
+        {
+            "blister_id": 1,
+            "series_id": 1,
+            "template_id": 1
+        }
+    ],
+    "templates": [
+        {
+            "template_id": 1,
+            "name": "Блистер на 18 ячеек"
+        }
+    ],
+    "template_cells": [
+        {
+            "cell_id": 1,
+            "template_id": 1,
+            "position_number": 1,
+            "x": 35,
+            "y": 38,
+            "width": 30,
+            "height": 30
+        },
+        {
+            "cell_id": 2,
+            "template_id": 1,
+            "position_number": 2,
+            "x": 114,
+            "y": 38,
+            "width": 30,
+            "height": 30
+        },
+        {
+            "cell_id": 3,
+            "template_id": 1,
+            "position_number": 3,
+            "x": 217,
+            "y": 38,
+            "width": 30,
+            "height": 30
+        },
+        {
+            "cell_id": 4,
+            "template_id": 1,
+            "position_number": 4,
+            "x": 295,
+            "y": 38,
+            "width": 30,
+            "height": 30
+        },
+        {
+            "cell_id": 5,
+            "template_id": 1,
+            "position_number": 5,
+            "x": 39,
+            "y": 151,
+            "width": 30,
+            "height": 30
+        },
+        {
+            "cell_id": 6,
+            "template_id": 1,
+            "position_number": 6,
+            "x": 115,
+            "y": 151,
+            "width": 30,
+            "height": 30
+        },
+        {
+            "cell_id": 7,
+            "template_id": 1,
+            "position_number": 7,
+            "x": 215,
+            "y": 149,
+            "width": 30,
+            "height": 30
+        },
+        {
+            "cell_id": 8,
+            "template_id": 1,
+            "position_number": 8,
+            "x": 296,
+            "y": 149,
+            "width": 30,
+            "height": 30
+        },
+        {
+            "cell_id": 9,
+            "template_id": 1,
+            "position_number": 9,
+            "x": 39,
+            "y": 269,
+            "width": 30,
+            "height": 30
+        },
+        {
+            "cell_id": 10,
+            "template_id": 1,
+            "position_number": 10,
+            "x": 294,
+            "y": 269,
+            "width": 30,
+            "height": 30
+        },
+        {
+            "cell_id": 11,
+            "template_id": 1,
+            "position_number": 11,
+            "x": 37,
+            "y": 382,
+            "width": 30,
+            "height": 30
+        },
+        {
+            "cell_id": 12,
+            "template_id": 1,
+            "position_number": 12,
+            "x": 115,
+            "y": 382,
+            "width": 30,
+            "height": 30
+        },
+        {
+            "cell_id": 13,
+            "template_id": 1,
+            "position_number": 13,
+            "x": 214,
+            "y": 382,
+            "width": 30,
+            "height": 30
+        },
+        {
+            "cell_id": 14,
+            "template_id": 1,
+            "position_number": 14,
+            "x": 293,
+            "y": 382,
+            "width": 30,
+            "height": 30
+        },
+        {
+            "cell_id": 15,
+            "template_id": 1,
+            "position_number": 15,
+            "x": 38,
+            "y": 492,
+            "width": 30,
+            "height": 30
+        },
+        {
+            "cell_id": 16,
+            "template_id": 1,
+            "position_number": 16,
+            "x": 114,
+            "y": 492,
+            "width": 30,
+            "height": 30
+        },
+        {
+            "cell_id": 17,
+            "template_id": 1,
+            "position_number": 17,
+            "x": 214,
+            "y": 492,
+            "width": 30,
+            "height": 30
+        },
+        {
+            "cell_id": 18,
+            "template_id": 1,
+            "position_number": 18,
+            "x": 293,
+            "y": 492,
+            "width": 30,
+            "height": 30
+        }
+    ],
+    "images": [
+        {
+            "image_id": 1,
+            "blister_id": 1,
+            "file_path": "ыав",
+            "captured_at": null
+        }
+    ],
+    "operators": [
+        {
+            "operator_id": 1,
+            "display_name": "ап"
+        }
+    ],
+    "inspections": [
+        {
+            "inspection_id": 1,
+            "image_id": 1,
+            "operator_id": 1,
+            "created_at": "2026-11-03T00:02:04",
+            "automatic_status": "Изображение непригодно",
+            "final_status": "Обнаружена пустая ячейка",
+            "confirmed_at": "2026-11-03T00:02:04"
+        }
+    ],
+    "cell_results": []
+}
