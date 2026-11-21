@@ -186,14 +186,14 @@
         {
             "image_id": 1,
             "blister_id": 1,
-            "file_path": "src/images/blister.png",
+            "file_path": "src/images/inspection_image.png",
             "captured_at": null
         }
     ],
     "operators": [
         {
             "operator_id": 1,
-            "display_name": "fllg"
+            "display_name": "ианат"
         }
     ],
     "inspections": [
@@ -201,10 +201,10 @@
             "inspection_id": 1,
             "image_id": 1,
             "operator_id": 1,
-            "created_at": "2026-11-03T17:59:01",
+            "created_at": "2026-11-21T22:31:44",
             "automatic_status": "Обнаружена пустая ячейка",
             "final_status": "Обнаружена пустая ячейка",
-            "confirmed_at": "2026-11-03T17:59:01"
+            "confirmed_at": "2026-11-21T22:31:44"
         }
     ],
     "cell_results": [

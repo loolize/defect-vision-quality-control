@@ -1,6 +1,9 @@
+
+import os
 import cv2
 import json
 from datetime import datetime
+from pathlib import Path
 
 def load_image(path):
     image = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
@@ -52,6 +55,26 @@ def load_template(path):
     return data
 
 
+
+def apply_cell_template(image, template_data):
+    cells = template_data["cells"]
+    height, width = image.shape
+
+    for cell in cells:
+        x = cell["x"]
+        y = cell["y"]
+        w = cell["width"]
+        h = cell["height"]
+
+        if x < 0 or y < 0 or w <= 0 or h <= 0:
+            print("Неверные координаты ячейки")
+            return None
+
+        if x + w > width or y + h > height:
+            print("Ячейка выходит за границы изображения")
+            return None
+
+    return cells
 
 
 def analyze_cells(image, cells):
@@ -206,6 +229,35 @@ def save_inspection(path, template_data, image_path,
 
     now = datetime.now().isoformat(timespec="seconds")
 
+
+
+    captured_at = None
+
+    if image_path is not None and Path(image_path).is_file():
+        date_text = input(
+            "Дата съемки (ГГГГ-ММ-ДД ЧЧ:ММ, Enter - неизвестно): "
+        ).strip()
+
+        if date_text:
+            try:
+                captured_at = datetime.strptime(
+                    date_text, "%Y-%m-%d %H:%M"
+                ).isoformat(timespec="minutes")
+            except ValueError:
+                print("Неверный формат даты")
+
+
+
+    saved_image_path = None
+
+    if image_path and os.path.isfile(image_path):
+        image = cv2.imread(image_path)
+
+        if image is not None:
+            if cv2.imwrite("src/images/inspection_image.png", image):
+                saved_image_path = "src/images/inspection_image.png"
+
+
     data = {
         "series":[
             {
@@ -228,8 +280,8 @@ def save_inspection(path, template_data, image_path,
             {
                 "image_id": 1,
                 "blister_id": 1,
-                "file_path": image_path,
-                "captured_at": None
+                "file_path": saved_image_path,
+                "captured_at": captured_at
             }
         ],
         "operators":[
@@ -299,7 +351,11 @@ def main():
 
     print("\nКачество изображения проверено")
 
-    cells = template_data["cells"]
+    cells = apply_cell_template(image, template_data)
+
+    if cells is None:
+        return
+
 
     print("Изображение загружено")
     print("Количество ячеек:", len(cells))
