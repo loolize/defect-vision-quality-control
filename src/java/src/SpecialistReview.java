@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
-public class SpecialistReview extends BaseInspection {
+public class SpecialistReview {
+
+    private final StatusMenu menu = new StatusMenu();
 
     public String checkReview(String status, Scanner scanner) {
         System.out.print("\nТребуется разбор специалистом? (да/нет): ");
@@ -22,14 +24,14 @@ public class SpecialistReview extends BaseInspection {
         System.out.print("Введите имя специалиста: ");
         scanner.nextLine();
 
-        printOptions();
+        menu.printOptions();
 
         while (true){
 
             System.out.print("Решение специалиста: ");
 
             String choice = scanner.nextLine().trim();
-            String result = getStatusByChoice(choice);
+            String result = menu.getStatusByChoice(choice);
 
             if (result != null) {
                 return result;
@@ -40,12 +42,6 @@ public class SpecialistReview extends BaseInspection {
     }
 
 
-
-
-    @Override
-    public String inspect(Inspection inspection, Scanner scanner){
-        return checkReview(inspection.getFinalStatus(), scanner);
-    }
 
 
 

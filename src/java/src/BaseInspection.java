@@ -2,27 +2,14 @@ import java.util.Scanner;
 
 public abstract class BaseInspection implements InspectionMethod{
 
+    private final StatusMenu menu = new StatusMenu();
+
     protected void printOptions(){
-        System.out.println("1. Полный");
-        System.out.println("2. Обнаружена пустая ячейка");
-        System.out.println("3. Требуется повторная проверка");
-    
+        menu.printOptions();
     }
 
     protected String getStatusByChoice(String choice) {
-        switch (choice){
-            case "1":
-                return "Полный";
-
-            case "2":
-                return "Обнаружена пустая ячейка";
-
-            case "3":
-                return "Требуется повторная проверка";
-            
-            default:
-                return null;
-        }
+        return menu.getStatusByChoice(choice);
 
 
     }
