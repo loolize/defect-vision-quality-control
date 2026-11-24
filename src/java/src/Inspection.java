@@ -16,10 +16,10 @@ public class Inspection{
     private final String createdAt;
 
     @SerializedName("automatic_status")
-    private String automaticStatus;
+    private InspectionStatus automaticStatus;
 
     @SerializedName("final_status")
-    private String finalStatus;
+    private InspectionStatus finalStatus;
 
     @SerializedName("confirmed_at")
     private String confirmedAt;
@@ -75,13 +75,13 @@ public class Inspection{
         return uncertainCells;
     }
 
-    public String makePreliminaryDecision(){
+    public InspectionStatus makePreliminaryDecision(){
         if (!getUncertainCells().isEmpty()){
-            automaticStatus = "Требуется повторная проверка";
+            automaticStatus = InspectionStatus.RECHECK;
         } else if (!getEmptyCells().isEmpty()) {
-            automaticStatus = "Обнаружена пустая ячейка";
+            automaticStatus = InspectionStatus.EMPTY_CELL;
         } else {
-            automaticStatus = "Полный";
+            automaticStatus = InspectionStatus.FULL;
         }
 
         return automaticStatus;
@@ -89,15 +89,15 @@ public class Inspection{
 
     public int getInspectionId(){return inspectionId;}
 
-    public String getAutomaticStatus(){return automaticStatus;}
+    public InspectionStatus getAutomaticStatus(){return automaticStatus;}
 
-    public void setAutomaticStatus(String automaticStatus){
+    public void setAutomaticStatus(InspectionStatus automaticStatus){
         this.automaticStatus = automaticStatus;
     }
 
-    public String getFinalStatus(){return finalStatus;}
+    public InspectionStatus getFinalStatus(){return finalStatus;}
 
-    public void confirm(String finalStatus, String confirmedAt){
+    public void confirm(InspectionStatus finalStatus, String confirmedAt){
         this.finalStatus = finalStatus;
         this.confirmedAt = confirmedAt;
     }

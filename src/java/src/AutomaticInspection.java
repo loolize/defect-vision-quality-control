@@ -15,7 +15,7 @@ public class AutomaticInspection extends BaseInspection implements InspectionMet
 
 
     @Override
-    public String inspect(Inspection inspection, Scanner scanner){
+    public InspectionStatus inspect(Inspection inspection, Scanner scanner){
 
         List<CellResult> results = analyzer.analyzeCells(
                 image.getImage(), cells, inspection.getInspectionId()
@@ -30,7 +30,7 @@ public class AutomaticInspection extends BaseInspection implements InspectionMet
             System.out.println("Ячейка " + result.getCellId() + " - " + result.getAutomaticState());
         }
 
-        String status = inspection.makePreliminaryDecision();
+        InspectionStatus status = inspection.makePreliminaryDecision();
 
 
         System.out.println("\nПустые ячейки: " + inspection.getEmptyCells());
@@ -50,7 +50,7 @@ public class AutomaticInspection extends BaseInspection implements InspectionMet
             System.out.print("Выберите правильный результат: ");
 
             String choice = scanner.nextLine();
-            String selected = getStatusByChoice(choice);
+            InspectionStatus selected = getStatusByChoice(choice);
 
             if (selected != null) { status = selected;}
 

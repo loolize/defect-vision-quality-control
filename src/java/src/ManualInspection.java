@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class ManualInspection extends BaseInspection implements InspectionMethod{
     @Override
-    public String inspect(Inspection inspection, Scanner scanner) {
+    public InspectionStatus inspect(Inspection inspection, Scanner scanner) {
 
-        inspection.setAutomaticStatus("Изображение непригодно");
+        inspection.setAutomaticStatus(InspectionStatus.UNSUITABLE_IMAGE);
 
         System.out.println("\nАвтоматическая проверка не выполнена");
 
@@ -17,7 +17,7 @@ public class ManualInspection extends BaseInspection implements InspectionMethod
             System.out.print("Введите результат проверки: ");
 
             String choice = scanner.nextLine();
-            String status = getStatusByChoice(choice);
+            InspectionStatus status = getStatusByChoice(choice);
 
             if (status != null) {
                 return status;

@@ -77,7 +77,7 @@ public class Main {
             method = new ManualInspection();
         }
 
-        String finalStatus = method.inspect(inspection, scanner);
+        InspectionStatus finalStatus = method.inspect(inspection, scanner);
 
         SpecialistReview specialist = new SpecialistReview();
 

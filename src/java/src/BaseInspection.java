@@ -8,14 +8,14 @@ public abstract class BaseInspection implements InspectionMethod{
         menu.printOptions();
     }
 
-    protected String getStatusByChoice(String choice) {
+    protected InspectionStatus getStatusByChoice(String choice) {
         return menu.getStatusByChoice(choice);
 
 
     }
 
     @Override
-    public abstract String inspect(Inspection inspection, Scanner scanner);
+    public abstract InspectionStatus inspect(Inspection inspection, Scanner scanner);
 
 
 }

@@ -4,7 +4,7 @@ public class SpecialistReview {
 
     private final StatusMenu menu = new StatusMenu();
 
-    public String checkReview(String status, Scanner scanner) {
+    public InspectionStatus checkReview(InspectionStatus status, Scanner scanner) {
         System.out.print("\nТребуется разбор специалистом? (да/нет): ");
 
         String answer = scanner.nextLine().trim();
@@ -17,7 +17,7 @@ public class SpecialistReview {
 
     }
 
-    private String review(String status, Scanner scanner) {
+    private InspectionStatus review(InspectionStatus status, Scanner scanner) {
 
         System.out.println("\nРазбор спорного случая");
         System.out.println("Текущий результат: " + status);
@@ -31,7 +31,7 @@ public class SpecialistReview {
             System.out.print("Решение специалиста: ");
 
             String choice = scanner.nextLine().trim();
-            String result = menu.getStatusByChoice(choice);
+            InspectionStatus result = menu.getStatusByChoice(choice);
 
             if (result != null) {
                 return result;

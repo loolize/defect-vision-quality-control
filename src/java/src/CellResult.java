@@ -8,11 +8,11 @@ public class CellResult {
     private final int cellId;
 
     @SerializedName("automatic_state")
-    private final String automaticState;
+    private final CellState automaticState;
 
 
 
-    public CellResult(int inspectionId, int cellId, String automaticState){
+    public CellResult(int inspectionId, int cellId, CellState automaticState){
         this.inspectionId = inspectionId;
         this.cellId = cellId;
         this.automaticState = automaticState;
@@ -22,15 +22,15 @@ public class CellResult {
 
     public int getCellId(){return cellId;}
 
-    public String getAutomaticState(){return automaticState;
+    public CellState getAutomaticState(){return automaticState;
     }
 
     public boolean isEmpty(){
-        return automaticState.equals("empty");
+        return automaticState == CellState.EMPTY;
     }
 
     public boolean isUncertain() {
-        return automaticState.equals("uncertain");
+        return automaticState == CellState.UNCERTAIN;
     }
 
 

@@ -8,7 +8,7 @@ public class CellAnalyzer{
     private final double filledThreshold = 0.18;
 
 
-    public String analyzeCell(Mat image, TemplateCell cell) {
+    public CellState analyzeCell(Mat image, TemplateCell cell) {
 
         int darkPixelCount = 0;
         int pixelCount = cell.getWidth()*cell.getHeight();
@@ -28,12 +28,12 @@ public class CellAnalyzer{
 
 
 
-        if (ratio < emptyThreshold) {return "empty";
+        if (ratio < emptyThreshold) {return CellState.EMPTY;
         } else if (ratio >= filledThreshold){
             
-            return "filled";
+            return CellState.FILLED;
         } else {
-            return "uncertain";
+            return CellState.UNCERTAIN;
         }
     }
 
@@ -43,7 +43,7 @@ public class CellAnalyzer{
 
         for (TemplateCell cell:cells){
 
-            String state = analyzeCell(image, cell);
+            CellState state = analyzeCell(image, cell);
 
             results.add(new CellResult(inspectionId, cell.getCellId(), state));
         }
